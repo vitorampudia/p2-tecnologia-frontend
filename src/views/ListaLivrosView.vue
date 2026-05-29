@@ -31,17 +31,17 @@ export default {
 </script>
 
 <template>
-  < <div class="container mt-4 d-flex flex-column align-items-center">
-        <b-row class="g-3 justify-content-center">
-            <b-col
-                v-for="livro in livros"
-                :key="livro.id"
-            >
-                <LivroCard :livro="livro"/>
-            </b-col>
-        </b-row>
-    </div>
-    
+  <div class="container mt-4">
+    <b-row class="row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+      <b-col
+        v-for="livro in livros" 
+        :key="livro.id" 
+        class="d-flex align-items-stretch justify-content-center mb-4"
+      >
+        <LivroCard :livro="livro"/>
+      </b-col>
+    </b-row>
+  </div>
 </template>
 
 <style scoped>
