@@ -107,15 +107,21 @@ export default {
   </div>
 
   <div class="container mt-4">
-    <b-row class="row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-      <b-col
-        v-for="livro in livros"
-        :key="livro.id"
-        class="d-flex align-items-stretch justify-content-center mb-4"
-      >
-        <LivroCard :livro="livro" />
-      </b-col>
-    </b-row>
+    <div v-if="livros">
+      <b-row class="row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+        <b-col
+          v-for="livro in livros"
+          :key="livro.id"
+          class="d-flex align-items-stretch justify-content-center mb-4"
+        >
+          <LivroCard :livro="livro" />
+        </b-col>
+      </b-row>
+    </div>
+
+    <div v-else class="text-center py-5">
+      <p class="livro-info">Carregando livros...</p>
+    </div>
   </div>
   <div class="d-flex justify-content-center mt-4 mb-5">
     <b-pagination v-model="pagina" :total-rows="total" :per-page="32" class="paginacao" />
